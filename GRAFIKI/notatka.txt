@@ -1,0 +1,1 @@
+Daje tutaj notatkę gdyż tak, chce dodać jakąś grafikę a baner, lecz on dopiero będzię podkoniec aby nie marnować czasu oraz chce aby ten folder poszedł do git'a abym mógł to zrobić w domu!

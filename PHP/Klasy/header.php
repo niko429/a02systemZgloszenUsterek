@@ -2,7 +2,7 @@
     class logowanie {
 
         function baner(){
-            echo "<header>";
+            echo "<header class='logowanie' style='font-size: 300%;'>";
                 echo "<h1>Zaloguj się</h1>";
             echo "</header>";
         }

@@ -1,19 +1,67 @@
 /* 1. Ogólne */
-html {
-    background-color: rgb(22,22,22);
+* {
+    font-size: 105%;
     color: rgb(240,240,240);
 }
 
+footer {
+    margin-left: 5px;
+    font-size: 75%;
+}
+
+html {
+    background-color: rgb(22,22,22);
+}
+
 body {
-    margin: 0;
+    margin: 7.5px 0 0 0;
+}
+
+input {
+    color: rgb(22,22,22);
+    background-color: rgb(180,180,180);
+    border-radius: 5px;
+    margin: 5px;
+    transition: 0.7s;
 }
 
 /* 2. Klasa */
+.logowanie {
+    text-align: center;
+    width: 20%;
+    margin: 0 auto;
+    border: 2px rgb(200,200,200) ridge;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 0.7s;
+}
+
+.guzik_submit {
+    background-color: rgb(0,200,0);
+    transition: 0.7s;
+}
 
 /* 2.1. Klasa z : */
+.logowanie:hover {
+    scale: 1.04;
+    color: white;
+    background-color: black;
+    border: 2px white ridge;
+}
+
+.guzik_submit:hover {
+    background-color: rgb(0,255,0);
+    scale: 1.05;
+}
 
 /* 3. Id */
+
 
 /* 3.1. Id z : */
 
 /* 4. Inne */
+input:hover {
+    background-color: rgb(222,222,222);
+    color: black;
+    border-radius: 10px;
+}

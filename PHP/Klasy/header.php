@@ -16,6 +16,13 @@
                 echo "<a href='../PHP/index.php'>Wyloguj</a>";
             echo "</header>";
         }
+
+        function dod_report(){
+            echo "<header>";
+                echo "<a href='../PHP/index.php'>Wyloguj</a>";
+                echo "<h1 class='logowanie' style='font-size: 300%;'>Dodaj zgłoszenie</h1>";
+            echo "</header>";
+        }
     }
 
     class technik {

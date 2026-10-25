@@ -25,6 +25,13 @@ input {
     transition: 0.7s;
 }
 
+textarea { 
+    resize: vertical;
+    background-color: rgb(180,180,180);
+    color: rgb(22,22,22);
+    transition: 0.7s;
+}
+
 /* 2. Klasa */
 .logowanie {
     text-align: center;
@@ -41,6 +48,16 @@ input {
     transition: 0.7s;
 }
 
+.guzik_reset {
+    background-color: rgb(200,0,0);
+    transition: 0.7s;
+}
+
+.ulozenie_form {
+    display: flex;
+    flex-direction: column;
+}
+
 /* 2.1. Klasa z : */
 .logowanie:hover {
     scale: 1.04;
@@ -54,6 +71,11 @@ input {
     scale: 1.05;
 }
 
+.guzik_reset:hover {
+    background-color: rgb(255,0,0);
+    scale: 1.05;
+}
+
 /* 3. Id */
 
 
@@ -64,4 +86,9 @@ input:hover {
     background-color: rgb(222,222,222);
     color: black;
     border-radius: 10px;
+}
+
+textarea:hover {
+    color: black;
+    background-color: rgb(222,222,222);
 }

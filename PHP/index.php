@@ -22,9 +22,9 @@
                 <label for='1'>Wprowadź nick: </label>
                 <input type='text' name='nick' id='1'><br>
                 <label for='2'>Wprowadź login: </label>
-                <input type='text' name='login' id='2'><br>
+                <input type='text' name='login' id='2' required><br>
                 <label for='3'>Wprowadź hasło: </label>
-                <input type='password' name='pass' id='3'><br>
+                <input type='password' name='pass' id='3' required><br>
                 <input type='submit' value='Zaloguj' class='guzik_submit'>
            </form>
         </div>

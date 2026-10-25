@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    margin: 7.5px 0 0 0;
+    margin: 7.5px 3px 0 3px;
 }
 
 input {
@@ -31,6 +31,11 @@ textarea {
     color: rgb(22,22,22);
     transition: 0.7s;
 }
+
+main,footer {
+    clear: both;
+}
+
 
 /* 2. Klasa */
 .logowanie {
@@ -58,6 +63,43 @@ textarea {
     flex-direction: column;
 }
 
+.lewy_baner {
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+
+.prawy_baner {
+    float: right;
+}
+
+.guzik_banerowy {
+    text-decoration: none;
+    margin: 2px;
+    border: 2px rgb(175,175,175) ridge;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.7s;
+}
+
+.guzik_banerowy_wyloguj {
+    text-decoration: none;
+    color: black;
+    margin: 2px;
+    padding: 2px;
+    border: 2px rgb(15,15,15) solid;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(175,0,0);
+    transition: 0.7s;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+}
+
 /* 2.1. Klasa z : */
 .logowanie:hover {
     scale: 1.04;
@@ -74,6 +116,22 @@ textarea {
 .guzik_reset:hover {
     background-color: rgb(255,0,0);
     scale: 1.05;
+}
+
+.guzik_banerowy:hover {
+    color: white;
+    border: 2px rgb(222,222,222) ridge;
+    border-radius: 10px;
+    background-color: black;
+    scale: 1.03;
+}
+
+.guzik_banerowy_wyloguj:hover {
+    color: white;
+    border: 2px black solid;
+    border-radius: 10px;
+    background-color: red;
+    scale: 1.03;
 }
 
 /* 3. Id */

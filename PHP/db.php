@@ -34,7 +34,7 @@
     }
     // Plik dodaZgloszen.php
     class dodaZgloszen{
-        function pobieranie_danych($sql){
+        function dodwanie($sql){
             $date = date("Y-m-d");
             if ($_SERVER["REQUEST_METHOD"] === "POST"){
                 $title = isset($_POST['title']) ? htmlspecialchars($_POST['title']) : "";
@@ -42,11 +42,9 @@
                 $loka = isset($_POST['loka']) ? htmlspecialchars($_POST['loka']) : "";
                 $autor = $_SESSION['nick']; //albo $_SESSION['login']
             } else {
-                echo "<p>Dane zosały źle przesłane</p>";
+                // echo "<p>Dane zosały źle przesłane</p>";
             }
-        }
 
-        function wysylanie_danych($sql){
             $zapytanie = "INSERT INTO `zglosenia`(`tytul`, `opis`, `lokalizacja`, `status`, `data`, `autor`) VALUES(?, ?, ?, 'Nowe', ?, ?)";
             if ($stmt = mysqli_prepare($sql, $zapytanie)) { 
                 mysqli_stmt_bind_param($stmt, 'sssss', $title, $opis, $loka, $date, $autor);

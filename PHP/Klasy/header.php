@@ -26,8 +26,13 @@
 
         function dod_report(){
             echo "<header>";
-                echo "<a href='../PHP/index.php'>Wyloguj</a>";
-                echo "<h1 class='logowanie' style='font-size: 300%;'>Dodaj zgłoszenie</h1>";
+                echo "<div class='lewy_baner'>";
+                    echo "Użytkownik: ".$_SESSION['nick'];
+                    // echo "<img src='../Grafiki/nazwa.png' alt='Tutaj grafika'";
+                echo "</div>";
+                echo "<div class='prawy_baner'>";
+                    echo "<a href='../PHP/index.php' class='guzik_banerowy_wyloguj'>Wyloguj</a>";
+                echo "</div>";
             echo "</header>";
         }
     }

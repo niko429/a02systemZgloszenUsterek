@@ -66,6 +66,8 @@
                 echo "</div>";
             echo "</header>";
         }
+
+        // Dodać trzeba header'a do listy zgłoszeń
     }
 
 ?>

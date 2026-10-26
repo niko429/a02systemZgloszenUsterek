@@ -44,6 +44,8 @@ table {
 
 th,td {
     border: 1px rgb(180,180,180) ridge;
+    text-align: center;
+    transition: 0.7s;
 }
 
 /* 2. Klasa */
@@ -162,4 +164,10 @@ input:hover {
 textarea:hover {
     color: black;
     background-color: rgb(222,222,222);
+}
+
+td:hover,th:hover {
+    color: white;
+    background-color: black;
+    scale: 1.07;
 }

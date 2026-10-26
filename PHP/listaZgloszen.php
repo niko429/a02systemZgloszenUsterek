@@ -12,6 +12,7 @@
 <body>
     <?php
         require_once './Klasy/header.php';
+        // Dodać tutaj headera
     ?>
     <main>
         <?php

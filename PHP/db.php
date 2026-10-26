@@ -1,5 +1,68 @@
 <?php
-    // Nauczyć się sesji
-    // Plan jest prosty, zrobić tak że jak ktoś się zaloguje to on ma opcję takie jakie ma przydzielone i zrobić tak że jeżeli np. jest on technikiem to za pomocą klas ustawlić tak że tylko technik widzi te klasy które ma pokazanae a jak jest tym pracownikiem to widzi tylko rzeczy co widzi pracownik
-    // Dziś musze to zrobić
+    // Plik index.php
+
+    // Plik menuZgloszen.php
+    class menuZgloszen {
+        function pobieranie_danych(){
+            if ($_SERVER["REQUEST_METHOD"] === "POST"){
+                $nick = isset($_POST["nick"]) ? htmlspecialchars($_POST["nick"]) : "";
+                $login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : "";
+                $pass = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
+                $zalogowany = true;
+                if ($zalogowany = true){
+                    $_SESSION['nick'] = $nick;
+                    $_SESSION['login'] = $login;
+                    $_SESSION['pass'] = $pass;
+
+                    if ($_SESSION['login'] == "Pracownik" && $_SESSION['pass'] == "123"){
+                        $obj = new pracownik();
+                        $obj->baner();
+                    }
+                    if ($_SESSION['login'] == "Technik" && $_SESSION['pass'] == "321"){
+                        $obj = new technik();
+                        $obj->baner();
+                    }
+                } else {
+                    echo "<p>Coś poszło nie tak z zatwierdzaniem danych, proszę wpisać je jeszcze raz</p>";
+                    $zalogowany = false;
+                }
+            } else {
+                echo "<p>Nie udało się poprawnie przesłać danych, proszę spróbować ponownie</p>";
+                $zalogowany = false;
+            }
+        }
+    }
+    // Plik dodaZgloszen.php
+    class dodaZgloszen{
+        function pobieranie_danych($sql){
+            $date = date("Y-m-d");
+            if ($_SERVER["REQUEST_METHOD"] === "POST"){
+                $title = isset($_POST['title']) ? htmlspecialchars($_POST['title']) : "";
+                $opis = isset($_POST['opis']) ? htmlspecialchars($_POST['opis']) : "";
+                $loka = isset($_POST['loka']) ? htmlspecialchars($_POST['loka']) : "";
+                $autor = $_SESSION['nick']; //albo $_SESSION['login']
+            } else {
+                echo "<p>Dane zosały źle przesłane</p>";
+            }
+        }
+
+        function wysylanie_danych($sql){
+            $zapytanie = "INSERT INTO `zglosenia`(`tytul`, `opis`, `lokalizacja`, `status`, `data`, `autor`) VALUES(?, ?, ?, 'Nowe', ?, ?)";
+            if ($stmt = mysqli_prepare($sql, $zapytanie)) { 
+                mysqli_stmt_bind_param($stmt, 'sssss', $title, $opis, $loka, $date, $autor);
+                if (mysqli_stmt_execute($stmt)) {
+                    echo "<p>Udało się przesłać dane</p>";
+                } else {
+                    echo "<p>Nie udało się przesłać danych, spróbuj ponownie</p>";
+                }
+                mysqli_stmt_close($stmt);
+            } else {
+                echo "<p>Wystąpił błąd podczas wpisywania danych, spróbuj ponownie</p>";
+            }
+        }
+    }
+
+    // Plik listaZgloszen.php
+
+    // Plik edycjaStatusu.php
 ?>

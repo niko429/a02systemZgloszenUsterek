@@ -30,7 +30,13 @@
     </main>
     <?php
         require_once './config.php';
+        require_once './db.php';
+        $obj = new dodaZgloszen();
+        $obj->pobieranie_danych($sql);
+        $obj->wysylanie_danych($sql);
         require_once './Include/footer.php';
+
+        // Chciałem opisać mój problem z stroną tą gdyż nie pokazuje mojego profilu, znaczy się nie ma totalnie takiej funkcji aby móc zobaczyć własny profil, a chciałbym wiedzieć co i jak mam a tak to nie wiem :/. Natomiast chciałem dodać co do zgłoszenia tego że textarea jest fajnie zrobiona, bla bla bla. Aaaa, to jest do zgłaszania usterek, no cóż leciutka pomyłka ale jak i tak zacząłem pisać to dokończę moje pisanie bezsensowne, pisze to specjalnie aby w tabelce móc określić jak duża ona musi być
     ?>
 </body>
 </html>

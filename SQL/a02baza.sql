@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 20, 2026 at 11:59 AM
+-- Generation Time: Paź 26, 2026 at 09:45 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -33,7 +33,7 @@ CREATE TABLE `uzytkownicy` (
   `login` text NOT NULL,
   `haslo` text DEFAULT NULL,
   `rola` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `uzytkownicy`
@@ -54,10 +54,10 @@ CREATE TABLE `zglosenia` (
   `tytul` varchar(120) NOT NULL,
   `opis` varchar(2000) NOT NULL,
   `lokalizacja` varchar(100) NOT NULL,
-  `status` text NOT NULL,
-  `data` text NOT NULL,
-  `autor` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status` varchar(50) NOT NULL DEFAULT 'Nowe',
+  `data` date NOT NULL,
+  `autor` varchar(255) NOT NULL
+);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -89,17 +89,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `zglosenia`
 --
 ALTER TABLE `zglosenia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `zglosenia`
---
-ALTER TABLE `zglosenia`
-  ADD CONSTRAINT `fk_zglosenia_uzytkownicy` FOREIGN KEY (`id`) REFERENCES `uzytkownicy` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

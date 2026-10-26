@@ -8,6 +8,7 @@
                 $nick = isset($_POST["nick"]) ? htmlspecialchars($_POST["nick"]) : "";
                 $login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : "";
                 $pass = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
+            
                 $zalogowany = true;
                 if ($zalogowany = true){
                     $_SESSION['nick'] = $nick;
@@ -32,6 +33,42 @@
             }
         }
     }
+
+//     class menuZgloszen {
+//     function pobieranie_danych(){
+//         // 1. Logowanie przez formularz (POST)
+//         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+//             $nick = isset($_POST["nick"]) ? htmlspecialchars($_POST["nick"]) : "";
+//             $login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : "";
+//             $pass = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
+
+//             // Weryfikacja danych logowania
+//             if (($login === "Pracownik" && $pass === "123") || ($login === "Technik" && $pass === "321")) {
+//                 $_SESSION['nick'] = $nick;
+//                 $_SESSION['login'] = $login;
+//                 $_SESSION['pass'] = $pass;
+//                 $_SESSION['zalogowany'] = true;
+//             } else {
+//                 echo "<p style='color: red;'>Błędny login lub hasło. Spróbuj ponownie.</p>";
+//                 return;
+//             }
+//         }
+
+//         // 2. Wyświetlanie menu dla zalogowanego użytkownika (zarówno po POST, jak i ponownym wejściu przez GET)
+//         if (isset($_SESSION['zalogowany']) && $_SESSION['zalogowany'] === true) {
+//             if ($_SESSION['login'] === "Pracownik") {
+//                 $obj = new pracownik();
+//                 $obj->baner();
+//             } elseif ($_SESSION['login'] === "Technik") {
+//                 $obj = new technik();
+//                 $obj->baner();
+//             }
+//         } else {
+//             echo "<p style='color: red;'>Brak dostępu. Proszę się najpierw zalogować.</p>";
+//         }
+//     }
+// }
+
     // Plik dodaZgloszen.php
     class dodaZgloszen{
         function dodwanie($sql){

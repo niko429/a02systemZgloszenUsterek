@@ -15,13 +15,31 @@
     // Natomiast nie wiem jak to zrobić, zakładam że muszę jakoś zastosować session ale nie wiem zbytnio jak.
         require_once './config.php';
         require_once './Klasy/header.php';
-        require_once './db.php';
-        $obj = new menuZgloszen();
-        $obj->pobieranie_danych();
-
+        $obj = new pracownik();
+        $obj->moje_zgloszenia();
     ?>
     <main>
-        <h1 class="center">Aby rozpocząć cokolwiek, wybierz jedną z dwóch opcji, lub wyloguj się jeżeli to nie jest te konto</h1>
+        <h1 class="logowanie" style="font-size: 250%;">Moje zgłoszenia</h1>
+        <?php 
+            require_once './db.php';
+            $zapytanie = "SELECT tytul,opis,lokalizacja,data FROM zglosenia";
+            $wynik = mysqli_query($sql,$zapytanie);
+            echo "<table>";
+                echo "<tr>";
+                    echo "<th>Tytuł</th>";
+                    echo "<th>Opis</th>";
+                    echo "<th>Lokalizacja</th>";
+                    echo "<th>Data</th>";
+                echo "</tr>";
+                while ($wynik1 = mysqli_fetch_row($wynik)){
+                    echo "<tr>";
+                        echo "<td>$wynik1[0]</td>";
+                        echo "<td><textarea disabled class='powieksz'>$wynik1[1]</textarea></td>";
+                        echo "<td>$wynik1[2]</td>";
+                        echo "<td>$wynik1[3]</td>";
+                }
+            echo "</table>";
+        ?>
     </main>
     <?php
         require_once './Include/footer.php';

@@ -36,6 +36,15 @@ main,footer {
     clear: both;
 }
 
+table {
+    border: 1px rgb(180,180,180) ridge;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+th,td {
+    border: 1px rgb(180,180,180) ridge;
+}
 
 /* 2. Klasa */
 .logowanie {
@@ -98,6 +107,10 @@ main,footer {
     text-align: center;
     margin: 0 auto;
     width: 300px;
+}
+
+.powieksz {
+    resize: both;
 }
 
 /* 2.1. Klasa z : */

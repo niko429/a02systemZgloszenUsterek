@@ -13,7 +13,7 @@
     <?php
     // Tutaj zrobić tak że jak ten się zaloguje to będzie tego wyświetlało się dla tego odpowiednie rzeczy, a dla tego drugiego będzie co innego pokazane.
     // Natomiast nie wiem jak to zrobić, zakładam że muszę jakoś zastosować session ale nie wiem zbytnio jak.
-        require_once 'config.php';
+        require_once './config.php';
         require_once './Klasy/header.php';
         require_once './db.php';
         $obj = new menuZgloszen();

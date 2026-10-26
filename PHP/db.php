@@ -23,11 +23,11 @@
                         $obj->baner();
                     }
                 } else {
-                    echo "<p>Coś poszło nie tak z zatwierdzaniem danych, proszę wpisać je jeszcze raz</p>";
+                    echo "<p style='color: red;'>Coś poszło nie tak z zatwierdzaniem danych, proszę wpisać je jeszcze raz</p>";
                     $zalogowany = false;
                 }
             } else {
-                echo "<p>Nie udało się poprawnie przesłać danych, proszę spróbować ponownie</p>";
+                echo "<p style='color: red;'>Nie udało się poprawnie przesłać danych, proszę spróbować ponownie</p>";
                 $zalogowany = false;
             }
         }
@@ -41,22 +41,24 @@
                 $opis = isset($_POST['opis']) ? htmlspecialchars($_POST['opis']) : "";
                 $loka = isset($_POST['loka']) ? htmlspecialchars($_POST['loka']) : "";
                 $autor = $_SESSION['nick']; //albo $_SESSION['login']
+
+                $zapytanie = "INSERT INTO `zglosenia`(`tytul`, `opis`, `lokalizacja`, `status`, `data`, `autor`) VALUES(?, ?, ?, 'Nowe', ?, ?)";
+                if ($stmt = mysqli_prepare($sql, $zapytanie)) { 
+                    mysqli_stmt_bind_param($stmt, 'sssss', $title, $opis, $loka, $date, $autor);
+                    if (mysqli_stmt_execute($stmt)) {
+                        echo "<p>Udało się przesłać dane</p>";
+                    } else {
+                        echo "<p>Nie udało się przesłać danych, spróbuj ponownie</p>";
+                    }
+                    mysqli_stmt_close($stmt);
+                } else {
+                    echo "<p>Wystąpił błąd podczas wpisywania danych, spróbuj ponownie</p>";
+                }
             } else {
                 // echo "<p>Dane zosały źle przesłane</p>";
             }
 
-            $zapytanie = "INSERT INTO `zglosenia`(`tytul`, `opis`, `lokalizacja`, `status`, `data`, `autor`) VALUES(?, ?, ?, 'Nowe', ?, ?)";
-            if ($stmt = mysqli_prepare($sql, $zapytanie)) { 
-                mysqli_stmt_bind_param($stmt, 'sssss', $title, $opis, $loka, $date, $autor);
-                if (mysqli_stmt_execute($stmt)) {
-                    echo "<p>Udało się przesłać dane</p>";
-                } else {
-                    echo "<p>Nie udało się przesłać danych, spróbuj ponownie</p>";
-                }
-                mysqli_stmt_close($stmt);
-            } else {
-                echo "<p>Wystąpił błąd podczas wpisywania danych, spróbuj ponownie</p>";
-            }
+            
         }
     }
 

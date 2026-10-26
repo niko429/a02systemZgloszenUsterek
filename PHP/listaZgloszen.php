@@ -39,6 +39,7 @@
                         echo "<td>$wynik1[4]</td>";
                         echo "<td>$wynik1[5]</td>";
                         echo "<td>$wynik1[6]</td>";
+                    echo "</tr>";
                 }
             echo "</table>"
         ?>

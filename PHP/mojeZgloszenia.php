@@ -37,6 +37,7 @@
                         echo "<td><textarea disabled class='powieksz'>$wynik1[1]</textarea></td>";
                         echo "<td>$wynik1[2]</td>";
                         echo "<td>$wynik1[3]</td>";
+                    echo "</tr>";
                 }
             echo "</table>";
         ?>

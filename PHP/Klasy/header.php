@@ -58,8 +58,8 @@
                 echo "<div class='lewy_baner'>";
                     echo "Użytkownik: ".$_SESSION['nick'];
                     // echo "<img src='../Grafiki/nazwa.png' alt='Tutaj grafika'";
-                    echo "<a href='dodaZgloszen.php' class='guzik_banerowy'>Zgłoszenia</a>";
-                    echo "<a href='mojeZgloszenia.php' class='guzik_banerowy'>Zmiana statusu zgłoszenia</a>";
+                    echo "<a href='listaZgloszen.php' class='guzik_banerowy'>Zgłoszenia</a>";
+                    echo "<a href='edycjaStatusu.php' class='guzik_banerowy'>Zmiana statusu zgłoszenia</a>";
                 echo "</div>";
                 echo "<div class='prawy_baner'>";
                     echo "<a href='../PHP/index.php' class='guzik_banerowy_wyloguj'>Wyloguj</a>";

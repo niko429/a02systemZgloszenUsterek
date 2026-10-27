@@ -4,21 +4,10 @@
     if ($_SESSION['nick'] === ""){
         die("Proszę wpisać swój nick aby móc dodawać raporty");
     }
+
+    require_once './Include/header.php';
+    menu_powrotu_prac();
 ?>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Niko">
-    <title>Dodawanie zgłoszeń</title>
-    <link rel="stylesheet" href="../CSS/styl.css">
-</head>
-<body>
-    <?php
-        require_once './Klasy/header.php';
-        $obj = new pracownik();
-        $obj->menu_powrotu();
-    ?>
     <main class="logowanie">
         <form action="dodaZgloszen.php" method="POST" class="ulozenie_form">
             <label for="1">Tytuł: </label>
@@ -39,5 +28,3 @@
         $obj->dodwanie($sql);
         require_once './Include/footer.php';
     ?>
-</body>
-</html>

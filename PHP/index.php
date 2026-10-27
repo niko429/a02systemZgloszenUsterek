@@ -1,20 +1,8 @@
 <?php
     session_start();
-?>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="Author" content="Niko">
-    <title>Logowanie</title>
-    <link rel="stylesheet" href="../CSS/styl.css">
-</head>
-<body>
-<?php 
     require_once './config.php';
-    require_once './Klasy/header.php';
-    $obj = new logowanie();
-    $obj->baner();
+    require_once './Include/header.php';
+    naglowek_html();
     $_SESSION['konto_istnieje'] = false;
 ?>
     <main class="logowanie">
@@ -33,5 +21,3 @@
 <?php 
     require_once './Include/footer.php';
 ?>
-</body>
-</html>

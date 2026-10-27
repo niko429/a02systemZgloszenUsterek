@@ -24,12 +24,10 @@
 
             if (isset($_SESSION['konto_istnieje']) && $_SESSION['konto_istnieje'] === true) {
                 if ($_SESSION['login'] === "Pracownik") {
-                    $obj = new pracownik();
-                    $obj->baner();
+                    baner_prac();
                     echo '<b style="font-size: 75%; color: lime;">&#8592;Udało się zalogować!</b>';
                 } elseif ($_SESSION['login'] === "Technik") {
-                    $obj = new technik();
-                    $obj->baner();
+                    baner_tech();
                     echo '<b style="font-size: 75%; color: lime;">&#8592;Udało się zalogować!</b>';
                 }
             } else {

@@ -1,0 +1,26 @@
+Do headera należy również dodać <!DOCTYPE html> do początku main
+Do footera należy również dawać końcówkę main
+
+Do plik db.php dajemy TYLKO polecenia SQL, wszystko co jest powiązane z bazą danych. Łączenie z bazą danych również tam ma być
+W config.php przechowujemy tylko 
+
+Jeżeli w headerze występuje inny tytuł wystarczy zrobić funkcję lub po prostu zmienną np.
+
+
+$zmienna = "Jestem nazwą karty";
+$zmienna1 = "Również jestem nazwą karty";
+
+<title>$zmianna</title>
+<title>$zmienna1</title>
+
+Albo za pomocą funkcji
+
+function baner(string $tytul = "Jestem tytułem"){
+    echo '<!DOCTYPE html>';
+    echo '<html lang="pl">';
+    echo '<head>';
+        echo '<meta charset="UTF-8">';
+        echo '<title>$tytul</title>';
+    echo '</head>';
+    echo '</html>';
+}

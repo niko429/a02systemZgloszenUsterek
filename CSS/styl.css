@@ -17,7 +17,7 @@ body {
     margin: 7.5px 3px 0 3px;
 }
 
-input {
+input, select, option {
     color: rgb(22,22,22);
     background-color: rgb(180,180,180);
     border-radius: 5px;
@@ -165,7 +165,7 @@ label {
 /* 3.1. Id z : */
 
 /* 4. Inne */
-input:hover {
+input:hover, select:hover, option:hover {
     background-color: rgb(222,222,222);
     color: black;
     border-radius: 10px;

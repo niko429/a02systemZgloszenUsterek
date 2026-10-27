@@ -10,7 +10,7 @@
                 $login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : "";
                 $pass = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
 
-                if (($login == "Pracownik" && $pass == "123") || ($login == "Technik" && $pass == "321")) {
+                if (($nick == "Adam" && $login == "Pracownik" && $pass == "123") || ($nick == "Niko985642" && $login == "Technik" && $pass == "321")) {
                     $_SESSION['nick'] = $nick;
                     $_SESSION['login'] = $login;
                     $_SESSION['pass'] = $pass;

@@ -66,26 +66,9 @@
             echo "</header>";
         }
 
-        function lista_zgloszen(){
+        function menu_powrotu(){
             echo "<header>";
-                echo "<div class='lewy_baner'>";
-                    if ($_SESSION['nick'] == "Niko985642" || $_SESSION['nick'] == "niko985642"){
-                        echo "Twórca strony: ".$_SESSION['nick'];
-                    } else {
-                        echo "Użytkownik: ".$_SESSION['nick'];
-                    }
-                    // echo "<img src='../Grafiki/nazwa.png' alt='Tutaj grafika'";
-                    echo "<a href='../PHP/menuZgloszen.php' class='guzik_banerowy'>Menu</a>";
-                echo "</div>";
-                echo "<div class='prawy_baner'>";
-                    echo "<a href='../PHP/index.php' class='guzik_banerowy_wyloguj'>Wyloguj</a>";
-                echo "</div>";
-            echo "</header>";
-        }
-
-        function edycja_zgloszen(){
-            echo "<header>";
-                echo "<div class='lewy_baner'>";
+                echo "<div class='lewy_baner' style='margin-bottom: 20px;'>";
                     if ($_SESSION['nick'] == "Niko985642" || $_SESSION['nick'] == "niko985642"){
                         echo "Twórca strony: ".$_SESSION['nick'];
                     } else {

@@ -13,7 +13,7 @@
     <?php
         require_once './Klasy/header.php';
         $obj = new technik();
-        $obj->lista_zgloszen();
+        $obj->menu_powrotu();
     ?>
     <main style="margin: 0 auto; width: 50%;">
         <h1 class="logowanie" style="font-size: 300%; margin-bottom: 10px; width: 350px;">Lista zgłoszeń</h1>

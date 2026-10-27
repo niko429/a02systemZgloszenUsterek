@@ -67,7 +67,18 @@
             echo "</header>";
         }
 
-        // Dodać trzeba header'a do listy zgłoszeń
+        function lista_zgloszen(){
+            echo "<header>";
+                echo "<div class='lewy_baner'>";
+                    echo "Użytkownik: ".$_SESSION['nick'];
+                    // echo "<img src='../Grafiki/nazwa.png' alt='Tutaj grafika'";
+                    echo "<a href='../PHP/menuZgloszen.php' class='guzik_banerowy'>Menu</a>";
+                echo "</div>";
+                echo "<div class='prawy_baner'>";
+                    echo "<a href='../PHP/index.php' class='guzik_banerowy_wyloguj'>Wyloguj</a>";
+                echo "</div>";
+            echo "</header>";
+        }
     }
 
 ?>

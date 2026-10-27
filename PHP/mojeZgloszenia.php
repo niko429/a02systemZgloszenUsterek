@@ -5,21 +5,19 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zgłoszenia</title>
+    <meta name="author" content="Niko">
+    <title>Moje zgłoszenia</title>
     <link rel="stylesheet" href="../CSS/styl.css">
 </head>
 <body>
     <?php
-    // Tutaj zrobić tak że jak ten się zaloguje to będzie tego wyświetlało się dla tego odpowiednie rzeczy, a dla tego drugiego będzie co innego pokazane.
-    // Natomiast nie wiem jak to zrobić, zakładam że muszę jakoś zastosować session ale nie wiem zbytnio jak.
         require_once './config.php';
         require_once './Klasy/header.php';
         $obj = new pracownik();
         $obj->moje_zgloszenia();
     ?>
-    <main>
-        <h1 class="logowanie" style="font-size: 250%;">Moje zgłoszenia</h1>
+    <main style="margin: 0 auto; width: 40%; text-align: center;">
+        <h1  style="font-size: 250%; width: 50%; margin-bottom: 15px;" class="logowanie">Moje zgłoszenia</h1>
         <?php 
             require_once './db.php';
             $zapytanie = "SELECT tytul,opis,lokalizacja,data FROM zglosenia";

@@ -1,11 +1,8 @@
 <?php
     function baner_logowanie(string $tytul = "Logowanie"){
-    ?>
-        <!DOCTYPE html>
-        <html lang="pl">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="Author" content="Niko">
+            include 'Do_funkcji/header_plus.php';
+            html();
+    ?> 
             <title><?php echo htmlspecialchars($tytul); ?></title>
             <link rel="stylesheet" href="../CSS/styl.css">
         </head>
@@ -17,12 +14,9 @@
     }
 
     function baner_prac(string $tytul = "Menu"){
+            include 'Do_funkcji/header_plus.php';
+            html();
     ?>
-        <!DOCTYPE html>
-        <html lang="pl">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="author" content="Niko">
             <title><?php echo htmlspecialchars($tytul)?></title>
             <link rel="stylesheet" href="../CSS/styl.css">
         </head>
@@ -47,12 +41,9 @@
     }
 
     function menu_powrotu_prac(string $tytul = "Panel pracownika"){
-?>
-        <!DOCTYPE html>
-        <html lang="pl">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="author" content="Niko">
+            include 'Do_funkcji/header_plus.php';
+            html();
+    ?>
             <title><?php echo htmlspecialchars($tytul)?></title>
             <link rel="stylesheet" href="../CSS/styl.css">
         </head>
@@ -75,12 +66,9 @@
     <?php
     }
    function baner_tech(string $tytul = "Menu"){
+            include 'Do_funkcji/header_plus.php';
+            html();
     ?>
-        <!DOCTYPE html>
-        <html lang="pl">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="Author" content="Niko">
             <title><?php echo htmlspecialchars($tytul); ?></title>
             <link rel="stylesheet" href="../CSS/styl.css">
         </head>
@@ -104,12 +92,9 @@
     }
 
     function menu_powrotu_tech(string $tytul = "Panel technika"){
+            include 'Do_funkcji/header_plus.php';
+            html();
         ?>
-        <!DOCTYPE html>
-        <html lang="pl">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="author" content="Niko">
             <title><?php echo htmlspecialchars($tytul);?></title>
             <link rel="stylesheet" href="../CSS/styl.css">
         </head>

@@ -26,9 +26,11 @@
                 if ($_SESSION['login'] === "Pracownik") {
                     $obj = new pracownik();
                     $obj->baner();
+                    echo '<b style="font-size: 75%; color: lime;">&#8592;Udało się zalogować!</b>';
                 } elseif ($_SESSION['login'] === "Technik") {
                     $obj = new technik();
                     $obj->baner();
+                    echo '<b style="font-size: 75%; color: lime;">&#8592;Udało się zalogować!</b>';
                 }
             } else {
                 // echo "<p style='color: red;'>Konto nie istnieje, proszę wpisać poprawne dane</p>";

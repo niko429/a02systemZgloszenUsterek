@@ -19,7 +19,7 @@
 
     ?>
     <main>
-        <h1 class="center">Aby rozpocząć cokolwiek, wybierz jedną z dwóch opcji, lub wyloguj się jeżeli to nie jest te konto</h1>
+        <h1 class="center"><br>Aby rozpocząć cokolwiek, wybierz jedną z dwóch opcji, lub wyloguj się jeżeli to nie jest te konto</h1>
     </main>
     <?php
         require_once './Include/footer.php';

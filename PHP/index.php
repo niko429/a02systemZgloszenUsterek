@@ -15,6 +15,7 @@
     require_once './Klasy/header.php';
     $obj = new logowanie();
     $obj->baner();
+    $_SESSION['konto_istnieje'] = false;
 ?>
     <main class="logowanie">
         <div>

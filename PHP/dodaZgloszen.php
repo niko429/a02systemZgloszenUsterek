@@ -17,7 +17,7 @@
     <?php
         require_once './Klasy/header.php';
         $obj = new pracownik();
-        $obj->dod_report();
+        $obj->menu_powrotu();
     ?>
     <main class="logowanie">
         <form action="dodaZgloszen.php" method="POST" class="ulozenie_form">

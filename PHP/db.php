@@ -10,17 +10,17 @@
                 $login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : "";
                 $pass = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
 
-                if (($login === "Pracownik" && $pass === "123") || ($login === "Technik" && $pass === "321")) {
+                if (($login == "Pracownik" && $pass == "123") || ($login == "Technik" && $pass == "321")) {
                     $_SESSION['nick'] = $nick;
                     $_SESSION['login'] = $login;
                     $_SESSION['pass'] = $pass;
-                    $_SESSION['zalogowany'] = true;
+                    $_SESSION['konto_istnieje'] = true;
                 } else {
-                    echo "<p style='color: red;'>Błędy login lub hasło, proszę nie zapomnieć o nick'u!</p>";
+                    echo "<p style='color: red;'>Takie konto nie istnieje, proszę wpisać poprawny login oraz haslo aby móc korzystać ze strony.<br> <a href='./index.php'>Powrót</a></p>";
                 }
             }
 
-            if (isset($_SESSION['zalogowany']) && $_SESSION['zalogowany'] === true) {
+            if (isset($_SESSION['konto_istnieje']) && $_SESSION['konto_istnieje'] === true) {
                 if ($_SESSION['login'] === "Pracownik") {
                     $obj = new pracownik();
                     $obj->baner();
@@ -29,7 +29,7 @@
                     $obj->baner();
                 }
             } else {
-                echo "<p style='color: red;'>Brak dostępu, proszę wpierw się zalogować.</p>";
+                // echo "<p style='color: red;'>Konto nie istnieje, proszę wpisać poprawne dane</p>";
             }
         }
     }

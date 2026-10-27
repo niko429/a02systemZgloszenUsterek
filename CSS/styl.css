@@ -133,11 +133,13 @@ label {
 
 .guzik_submit:hover {
     background-color: rgb(0,255,0);
+    cursor: pointer;
     scale: 1.05;
 }
 
 .guzik_reset:hover {
     background-color: rgb(255,0,0);
+        cursor: pointer;
     scale: 1.05;
 }
 

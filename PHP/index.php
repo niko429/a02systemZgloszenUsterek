@@ -2,7 +2,7 @@
     session_start();
     require_once './config.php';
     require_once './Include/header.php';
-    naglowek_html();
+    baner_logowanie();
     $_SESSION['konto_istnieje'] = false;
 ?>
     <main class="logowanie">

@@ -5,38 +5,38 @@
 
     // Plik menuZgloszen.php
    function gettingData(){
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $nick = isset($_POST["nick"]) ? htmlspecialchars($_POST["nick"]) : "";
-        $login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : "";
-        $pass = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $nick = isset($_POST["nick"]) ? htmlspecialchars($_POST["nick"]) : "";
+            $login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : "";
+            $pass = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
 
-        if (($nick == "Adam" && $login == "Pracownik" && $pass == "123") || ($nick == "Niko985642" && $login == "Technik" && $pass == "321")) {
-            $_SESSION['nick'] = $nick;
-            $_SESSION['login'] = $login;
-            $_SESSION['pass'] = $pass;
-            $_SESSION['Account_exits'] = true;
-        } else {
-            unset($_SESSION['Account_exits']);
-            unset($_SESSION['login']);
-            unset($_SESSION['nick']);
-            if ($nick == "") {
-                echo "Proszę dopisać nick";
+            if (($nick == "Adam" && $login == "Pracownik" && $pass == "123") || ($nick == "Niko985642" && $login == "Technik" && $pass == "321")) {
+                $_SESSION['nick'] = $nick;
+                $_SESSION['login'] = $login;
+                $_SESSION['pass'] = $pass;
+                $_SESSION['Account_exits'] = true;
             } else {
-                echo 'Takie konto nie istnieje, proszę skontaktować się z technikiem lub wpisać hasło oraz login ponownie.';
+                unset($_SESSION['Account_exits']);
+                unset($_SESSION['login']);
+                unset($_SESSION['nick']);
+                if ($nick == "") {
+                    echo "Proszę dopisać nick";
+                } else {
+                    echo 'Takie konto nie istnieje, proszę skontaktować się z technikiem lub wpisać hasło oraz login ponownie.';
+                }
+            }
+        }
+
+        if (isset($_SESSION['Account_exits']) && $_SESSION['Account_exits'] === true) {
+            if ($_SESSION['login'] === "Pracownik") {
+                baner_prac();
+                echo 'Udało się zalogować!';
+            } elseif ($_SESSION['login'] === "Technik") {
+                baner_tech();
+                echo 'Udało się zalogować!';
             }
         }
     }
-
-    if (isset($_SESSION['Account_exits']) && $_SESSION['Account_exits'] === true) {
-        if ($_SESSION['login'] === "Pracownik") {
-            baner_prac();
-            echo 'Udało się zalogować!';
-        } elseif ($_SESSION['login'] === "Technik") {
-            baner_tech();
-            echo 'Udało się zalogować!';
-        }
-    }
-}
 
     // Plik dodaZgloszen.php
     function addReport($sql){

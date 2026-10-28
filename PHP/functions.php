@@ -1,5 +1,6 @@
 <?php 
     require_once './db.php';
+    require_once './config.php';
     require_once 'Include/fuction_extra.php';
 
     // Plik menuZgloszen.php
@@ -65,7 +66,7 @@
         $zapytanie = "SELECT * FROM `zglosenia`";
         $wynik = mysqli_query($sql,$zapytanie);
 
-        table_add();
+        table_add($wynik);
     }
 
     // Plik edycjaStatusu.php
@@ -73,11 +74,11 @@
         $zapytanie = "SELECT * FROM `zglosenia`";
         $wynik = mysqli_query($sql,$zapytanie);
         
-        tableEdit($sql);
+        tableEdit($wynik);
     }
 
     function edit($sql){
-        editVisuals();
+        editVisuals($sql);
     }
 
     // Plik mojeZgloszenia.php
@@ -85,6 +86,6 @@
         $zapytanie = "SELECT tytul,opis,lokalizacja,data FROM zglosenia";
         $wynik = mysqli_query($sql,$zapytanie);
 
-        tableMyReports($sql);
+        tableMyReports($wynik);
     }
 ?>

@@ -15,4 +15,5 @@
     </main>
     <?php
         require_once './Include/footer.php';
+        footer();
     ?>

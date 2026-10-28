@@ -1,7 +1,12 @@
 <?php 
-        echo "<footer>";
-            echo "<p>Autorem strony jest: Nikodem Naperty.</p>";
-        echo "</footer>";
-    echo "</body>";
-    echo "</html>";
+    function footer(){
+
+    ?>
+        <footer>
+            <p>Autorem strony jest: Nikodem Naperty.</p>
+        </footer>
+    </body>
+    </html>
+    <?php
+    }
 ?>

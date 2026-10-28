@@ -27,4 +27,5 @@
         require_once './functions.php';
         addReport($sql);
         require_once './Include/footer.php';
+        footer();
     ?>

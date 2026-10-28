@@ -22,21 +22,15 @@
         </head>
         <body>
         <header>
-        <div class='lewy_baner'>
-        <?php
-            if ($_SESSION['nick'] == "Niko985642" || $_SESSION['nick'] == "niko985642"){
-                echo "Twórca strony: ".$_SESSION['nick'];
-            } else {
-                echo "Użytkownik: ".$_SESSION['nick'];
-            }
-        ?>
-        <a href='dodaZgloszen.php' class='guzik_banerowy'>Dodaj nowe zgłoszenie</a>
-        <a href='mojeZgloszenia.php' class='guzik_banerowy'>Moje zgłoszenia</a>
-        </div>
-        <div class='prawy_baner'>
-            <a href='../PHP/index.php' class='guzik_banerowy_wyloguj'>Wyloguj</a>
-        </div>
-        </header>
+            <div class='lewy_baner'>
+                <?php
+                    uzytkownik_if();
+                ?>
+            <a href='dodaZgloszen.php' class='guzik_banerowy'>Dodaj nowe zgłoszenie</a>
+            <a href='mojeZgloszenia.php' class='guzik_banerowy'>Moje zgłoszenia</a>
+            <?php 
+                prawy_baner();
+            ?>
 <?php
     }
 
@@ -51,20 +45,15 @@
         <header>
             <div class='lewy_baner'>
                 <?php 
-                if ($_SESSION['nick'] == "Niko985642" || $_SESSION['nick'] == "niko985642"){
-                    echo "Twórca strony: ".$_SESSION['nick'];
-                } else {
-                    echo "Użytkownik: ".$_SESSION['nick'];
-                }
+                    uzytkownik_if();
                 ?>
                 <a href='../PHP/menuZgloszen.php' class='guzik_banerowy'>Menu</a>
-            </div>
-            <div class='prawy_baner'>
-                <a href='../PHP/index.php' class='guzik_banerowy_wyloguj'>Wyloguj</a>
-            </div>
-        </header>
+            <?php 
+                prawy_baner();
+            ?>
     <?php
     }
+
    function baner_tech(string $tytul = "Menu"){
             include 'Do_funkcji/header_plus.php';
             html();
@@ -75,19 +64,13 @@
         <header>
             <div class='lewy_baner'>
                 <?php
-                if ($_SESSION['nick'] == "Niko985642" || $_SESSION['nick'] == "niko985642"){
-                    echo "Twórca strony: ".$_SESSION['nick'];
-                } else {
-                    echo "Użytkownik: ".$_SESSION['nick'];
-                }
+                    uzytkownik_if();
                 ?>
                 <a href='listaZgloszen.php' class='guzik_banerowy'>Zgłoszenia</a>
                 <a href='edycjaStatusu.php' class='guzik_banerowy'>Zmiana statusu zgłoszenia</a>
-            </div>
-            <div class='prawy_baner'>
-                <a href='../PHP/index.php' class='guzik_banerowy_wyloguj'>Wyloguj</a>
-            </div>
-        </header>
+            <?php 
+                prawy_baner();
+            ?>
     <?php
     }
 
@@ -102,18 +85,12 @@
         <header>
             <div class='lewy_baner' style='margin-bottom: 20px;'>
                 <?php
-                if ($_SESSION['nick'] == "Niko985642" || $_SESSION['nick'] == "niko985642"){
-                    echo "Twórca strony: ".$_SESSION['nick'];
-                } else {
-                    echo "Użytkownik: ".$_SESSION['nick'];
-                }
+                    uzytkownik_if();
                 ?>
                 <a href='../PHP/menuZgloszen.php' class='guzik_banerowy'>Menu</a>
-            </div>
-            <div class='prawy_baner'>
-                <a href='../PHP/index.php' class='guzik_banerowy_wyloguj'>Wyloguj</a>
-            </div>
-        </header>
+            <?php 
+                prawy_baner();
+            ?>
     <?php
     }
 ?>

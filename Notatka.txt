@@ -24,3 +24,14 @@ function baner(string $tytul = "Jestem tytułem"){
     echo '</head>';
     echo '</html>';
 }
+
+
+Trzeba zrobić dwie nowe tabele co do sql
+
+Tabela: Rola
+- Musi być tak że np. id=1 jest to pracownik, a id=2 to technik 
+- I zamiast pisać tam w tabeli tekstem to trzeba za pomocą integerów, czyli tak
+
+Tabela: Status
+- Musi być tak że jest dana liczba i ona reprezentuje dany status np. id=1 to nowe, id=2 to w trakcie oraz id=3 to skończone
+- Nie może być status wpisywany w sql lecz to musi być za pomocą tych liczb

@@ -57,6 +57,8 @@ function tableEdit($wynik){
 }
 
 function editVisuals($sql){
+    $zapytanie1 = "SELECT id, nazwa FROM status";
+    $wynik = mysqli_query($sql, $zapytanie1);
 ?>
     <div style='float: right; width: 30%;' class='logowanie'>
         <h1 class='logowanie' style='font-size: 250%; width: 200px; margin-bottom: 20px;'>Edycja</h1>
@@ -65,9 +67,13 @@ function editVisuals($sql){
             <input type='number' name='id' id='1' placeholder='Wprowadź ID:'><br>
             <label for='2'>Status: </label>
             <select id='2' name='status'>
-                <option value='1'>Nowe</option>
-                <option value='2'>W trakcie</option>
-                <option value='3'>Zakończone</option>
+            <?php
+                while ($wynik1 = mysqli_fetch_assoc($wynik)) {
+            ?>
+                <option value="<?=$wynik1['id']?>"><?=htmlspecialchars($wynik1['nazwa'])?></option>
+            <?php
+                }
+            ?>
             </select><br>
             <input type='submit' value='Zmień' class='guzik_submit'>
         </form>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 26, 2026 at 09:45 AM
+-- Generation Time: Paź 28, 2026 at 01:57 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -24,6 +24,45 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `rola`
+--
+
+CREATE TABLE `rola` (
+  `id` int(11) NOT NULL,
+  `nazwa` varchar(50) NOT NULL
+);
+
+--
+-- Dumping data for table `rola`
+--
+
+INSERT INTO `rola` (`id`, `nazwa`) VALUES
+(1, 'Pracownik'),
+(2, 'Technik');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(11) NOT NULL,
+  `nazwa` varchar(50) NOT NULL
+);
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `nazwa`) VALUES
+(1, 'nowe'),
+(2, 'w trakcie'),
+(3, 'skończone');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `uzytkownicy`
 --
 
@@ -32,16 +71,16 @@ CREATE TABLE `uzytkownicy` (
   `nick` text NOT NULL,
   `login` text NOT NULL,
   `haslo` text DEFAULT NULL,
-  `rola` text NOT NULL
+  `id_rola` int(11) NOT NULL
 );
 
 --
 -- Dumping data for table `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`id`, `nick`, `login`, `haslo`, `rola`) VALUES
-(1, 'Adam', 'Pracownik', 123, 'Pracownik'),
-(2, 'Niko985642', 'Technik', 321, 'Technik');
+INSERT INTO `uzytkownicy` (`id`, `nick`, `login`, `haslo`, `id_rola`) VALUES
+(1, 'Adam', 'Pracownik', '123', 1),
+(2, 'Niko985642', 'Technik', '321', 2);
 
 -- --------------------------------------------------------
 
@@ -54,30 +93,63 @@ CREATE TABLE `zglosenia` (
   `tytul` varchar(120) NOT NULL,
   `opis` varchar(2000) NOT NULL,
   `lokalizacja` varchar(100) NOT NULL,
-  `status` varchar(50) NOT NULL DEFAULT 'Nowe',
+  `id_status` int(11) NOT NULL DEFAULT 1,
   `data` date NOT NULL,
   `autor` varchar(255) NOT NULL
 );
+
+--
+-- Dumping data for table `zglosenia`
+--
+
+INSERT INTO `zglosenia` (`id`, `tytul`, `opis`, `lokalizacja`, `id_status`, `data`, `autor`) VALUES
+(1, '2323;jhgtfrertfg', '23,mngftyujk,mn', 'bvfgjkl,23,mnbvfdghjk', 2, '2026-10-28', 'Adam');
 
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
+-- Indeksy dla tabeli `rola`
+--
+ALTER TABLE `rola`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_uzytkownicy_rola` (`id_rola`);
 
 --
 -- Indeksy dla tabeli `zglosenia`
 --
 ALTER TABLE `zglosenia`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_zglosenia_status` (`id_status`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `rola`
+--
+ALTER TABLE `rola`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `uzytkownicy`
@@ -89,7 +161,23 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `zglosenia`
 --
 ALTER TABLE `zglosenia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `uzytkownicy`
+--
+ALTER TABLE `uzytkownicy`
+  ADD CONSTRAINT `fk_uzytkownicy_rola` FOREIGN KEY (`id_rola`) REFERENCES `rola` (`id`);
+
+--
+-- Constraints for table `zglosenia`
+--
+ALTER TABLE `zglosenia`
+  ADD CONSTRAINT `fk_zglosenia_status` FOREIGN KEY (`id_status`) REFERENCES `status` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

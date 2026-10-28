@@ -65,9 +65,9 @@ function editVisuals($sql){
             <input type='number' name='id' id='1' placeholder='Wprowadź ID:'><br>
             <label for='2'>Status: </label>
             <select id='2' name='status'>
-                <option value='Nowe'>Nowe</option>
-                <option value='W trakcie'>W trakcie</option>
-                <option value='Zakończone'>Zakończone</option>
+                <option value='1'>Nowe</option>
+                <option value='2'>W trakcie</option>
+                <option value='3'>Zakończone</option>
             </select><br>
             <input type='submit' value='Zmień' class='guzik_submit'>
         </form>
@@ -76,7 +76,7 @@ function editVisuals($sql){
             $id = isset($_POST['id']) ? htmlspecialchars($_POST['id']): "";
             $status = isset($_POST['status']) ? htmlspecialchars($_POST['status']): "";
         
-            $zapytanie = "UPDATE zglosenia set status=? where id=?";
+            $zapytanie = "UPDATE zglosenia set id_status=? where id=?";
             if ($stmt = mysqli_prepare($sql,$zapytanie)){
                 mysqli_stmt_bind_param($stmt, 'si', $status, $id);
                 if (mysqli_stmt_execute($stmt)){

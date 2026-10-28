@@ -1,4 +1,13 @@
 <?php
+    /*
+        Zawartość config'a
+        <?php
+            $host = 'localhost';
+            $user = 'root';
+            $pass = '';
+            $database = 'a02baza';
+        ?>
+    */
     require_once './config.php';
     // Łączenie z bazą danych
     $sql = null;

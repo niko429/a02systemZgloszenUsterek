@@ -11,8 +11,8 @@
         <h1  style="font-size: 250%; width: 50%; margin-bottom: 15px;" class="logowanie">Moje zgłoszenia</h1>
         <?php 
             require_once './db.php';
-            $obj = new mojeZgloszenia();
-            $obj->lista($sql);
+            require_once './functions.php';
+            listMyReports();
         ?>
     </main>
     <?php

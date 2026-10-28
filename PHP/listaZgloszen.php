@@ -19,8 +19,8 @@
         <?php
             require_once './config.php';
             require_once './db.php';
-            $obj = new listaZgloszen();
-            $obj->lista($sql);
+            require_once './functions.php';
+            listReport($sql);
         ?>
     </main>
     <?php

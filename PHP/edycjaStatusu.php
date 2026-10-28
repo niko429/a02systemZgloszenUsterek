@@ -8,9 +8,9 @@
     <?php
         require_once './config.php';
         require_once './db.php';
-        $obj = new edycjaStatusu();
-        $obj->lista($sql);
-        $obj->edycja($sql);
+        require_once './functions.php';
+        listEdit($sql);
+        edit($sql);
     ?>
     </main>
     <?php

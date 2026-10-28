@@ -24,7 +24,7 @@
     <?php
         require_once './config.php';
         require_once './db.php';
-        $obj = new dodaZgloszen();
-        $obj->dodwanie($sql);
+        require_once './functions.php';
+        addReport($sql);
         require_once './Include/footer.php';
     ?>

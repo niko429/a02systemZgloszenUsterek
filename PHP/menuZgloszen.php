@@ -4,7 +4,7 @@
         require_once './Include/header.php';
         require_once './db.php';
         require_once './functions.php';
-        gettingData();
+        gettingData($sql);
     ?>
     <main>
         <h1 class="center"><br>Aby rozpocząć cokolwiek, wybierz jedną z dwóch opcji, lub wyloguj się jeżeli to nie jest te konto</h1>

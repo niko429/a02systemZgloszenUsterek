@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `uzytkownicy` (
   `id` int(11) NOT NULL,
-  `nazwa` text NOT NULL,
+  `nick` text NOT NULL,
   `login` text NOT NULL,
   `haslo` text DEFAULT NULL,
   `rola` text NOT NULL
@@ -39,9 +39,9 @@ CREATE TABLE `uzytkownicy` (
 -- Dumping data for table `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`id`, `nazwa`, `login`, `haslo`, `rola`) VALUES
-(1, 'niko', 'jestem_login', NULL, 'Pracownik'),
-(2, 'Niko_tech', 'Niko984542', NULL, 'Technik');
+INSERT INTO `uzytkownicy` (`id`, `nick`, `login`, `haslo`, `rola`) VALUES
+(1, 'Adam', 'Pracownik', 123, 'Pracownik'),
+(2, 'Niko985642', 'Technik', 321, 'Technik');
 
 -- --------------------------------------------------------
 

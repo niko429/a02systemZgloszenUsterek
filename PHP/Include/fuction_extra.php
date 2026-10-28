@@ -60,7 +60,7 @@ function editVisuals($sql){
 ?>
     <div style='float: right; width: 30%;' class='logowanie'>
         <h1 class='logowanie' style='font-size: 250%; width: 200px; margin-bottom: 20px;'>Edycja</h1>
-        <form action='edycjaStatusu.php' method='POST'>
+        <form action='editStatus.php' method='POST'>
             <label for='1'>Wprowadź id zgłoszenia: </label>
             <input type='number' name='id' id='1' placeholder='Wprowadź ID:'><br>
             <label for='2'>Status: </label>

@@ -18,8 +18,8 @@
                 <?php
                     user_if();
                 ?>
-            <a href='dodaZgloszen.php' class='guzik_banerowy'>Dodaj nowe zgłoszenie</a>
-            <a href='mojeZgloszenia.php' class='guzik_banerowy'>Moje zgłoszenia</a>
+            <a href='addReport.php' class='guzik_banerowy'>Dodaj nowe zgłoszenie</a>
+            <a href='myReports.php' class='guzik_banerowy'>Moje zgłoszenia</a>
         <?php 
             right_baner();
         ?>
@@ -35,7 +35,7 @@
                 <?php 
                     user_if();
                 ?>
-                <a href='../PHP/menuZgloszen.php' class='guzik_banerowy'>Menu</a>
+                <a href='../PHP/reportsMenu.php' class='guzik_banerowy'>Menu</a>
             <?php 
                 right_baner();
             ?>
@@ -51,8 +51,8 @@
                 <?php
                     user_if();
                 ?>
-                <a href='listaZgloszen.php' class='guzik_banerowy'>Zgłoszenia</a>
-                <a href='edycjaStatusu.php' class='guzik_banerowy'>Zmiana statusu zgłoszenia</a>
+                <a href='reportList.php' class='guzik_banerowy'>Zgłoszenia</a>
+                <a href='editStatus.php' class='guzik_banerowy'>Zmiana statusu zgłoszenia</a>
             <?php 
                 right_baner();
             ?>
@@ -68,7 +68,7 @@
                 <?php
                     user_if();
                 ?>
-                <a href='../PHP/menuZgloszen.php' class='guzik_banerowy'>Menu</a>
+                <a href='../PHP/reportsMenu.php' class='guzik_banerowy'>Menu</a>
             <?php 
                 right_baner();
             ?>

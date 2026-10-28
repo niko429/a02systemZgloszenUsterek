@@ -7,7 +7,7 @@
 ?>
     <main class="logowanie">
         <div>
-            <form method='POST' action='menuZgloszen.php'>
+            <form method='POST' action='reportsMenu.php'>
                 <label for='1'>Wprowadź nick: </label>
                 <input type='text' name='nick' id='1'><br>
                 <label for='2'>Wprowadź login: </label>

@@ -9,7 +9,7 @@
     menu_powrotu_prac();
 ?>
     <main class="logowanie">
-        <form action="dodaZgloszen.php" method="POST" class="ulozenie_form">
+        <form action="addReport.php" method="POST" class="ulozenie_form">
             <label for="1">Tytuł: </label>
             <input type="text" name="title" id="1" placeholder="Tu wpisz tytuł, max 120 znaków" maxlength="120" required><br>
             <label for="2">Opis problemu: </label>

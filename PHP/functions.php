@@ -4,39 +4,42 @@
     require_once 'Include/fuction_extra.php';
 
     // Plik menuZgloszen.php
-    function gettingData($sql){
+    function gettingData($sql) {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $nick = isset($_POST["nick"]) ? htmlspecialchars($_POST["nick"]) : "";
+            $nick  = isset($_POST["nick"]) ? htmlspecialchars($_POST["nick"]) : "";
             $login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : "";
-            $pass = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
+            $pass  = isset($_POST["pass"]) ? htmlspecialchars($_POST["pass"]) : "";
 
-            $zapytanie = "SELECT nick, login, haslo, id_rola FROM uzytkownicy WHERE nick=? AND login=? AND haslo=?";
-            if ($stmt = mysqli_prepare($sql, $zapytanie)){
+            $zapytanie = "SELECT u.nick, u.login, up.nazwa AS uprawnienie FROM uzytkownicy u INNER JOIN uprawnienia up ON u.id_uprawnienia = up.id WHERE u.nick = ? AND u.login = ? AND u.haslo = ?";
+
+            if ($stmt = mysqli_prepare($sql, $zapytanie)) {
                 mysqli_stmt_bind_param($stmt, 'sss', $nick, $login, $pass);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
+
                 if ($row = mysqli_fetch_assoc($result)) {
-                    $_SESSION['nick'] = $row['nick'];
-                    $_SESSION['login'] = $row['login'];
-                    $_SESSION['pass'] = $row['haslo'];
-                    $_SESSION['id_rola'] = $row['id_rola'];
                     $_SESSION['Account_exits'] = true;
+                    $_SESSION['nick'] = $row['nick'];
+                    $_SESSION['uprawnienie'] = $row['uprawnienie'];
                 } else {
                     unset($_SESSION['Account_exits']);
-                    unset($_SESSION['login']);
                     unset($_SESSION['nick']);
+                    unset($_SESSION['uprawnienie']);
+                    echo "Błędne dane logowania!";
                 }
+                mysqli_stmt_close($stmt);
             }
         }
 
-        if (isset($_SESSION['Account_exits']) && $_SESSION['Account_exits'] === true) {
-            if ($_SESSION['id_rola'] === 1) {
-                baner_prac();
-                echo 'Udało się zalogować!';
-            } elseif ($_SESSION['id_rola'] === 2) {
-                baner_tech();
-                echo 'Udało się zalogować!';
+        if (!empty($_SESSION['Account_exits'])) {
+            $funkcja = $_SESSION['uprawnienie'];
+            if (function_exists($funkcja)) {
+                $funkcja();
+            } else {
+                echo "Brak przypisanego widoku.";
             }
+            
+            echo ' Udało się zalogować!';
         }
     }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 29, 2026 at 09:06 AM
+-- Generation Time: Paź 29, 2026 at 09:43 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `rola` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `rola`
@@ -49,7 +49,7 @@ INSERT INTO `rola` (`id`, `nazwa`) VALUES
 CREATE TABLE `status` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `status`
@@ -76,8 +76,8 @@ CREATE TABLE `uprawnienia` (
 --
 
 INSERT INTO `uprawnienia` (`id`, `nazwa`) VALUES
-(1, 'baner_pracownik'),
-(2, 'baner_technik');
+(1, 'baner_prac'),
+(2, 'baner_tech');
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,7 @@ CREATE TABLE `uzytkownicy` (
 
 INSERT INTO `uzytkownicy` (`id`, `nick`, `login`, `haslo`, `id_rola`, `id_uprawnienia`) VALUES
 (1, 'Adam', 'Pracownik', '123', 1, 1),
-(2, 'Niko985642', 'Technik', '321', 2, 1);
+(2, 'Niko985642', 'Technik', '321', 2, 2);
 
 -- --------------------------------------------------------
 

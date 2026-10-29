@@ -26,19 +26,20 @@
                     unset($_SESSION['login']);
                     unset($_SESSION['nick']);
                 }
+            }
+        }
+
+        if (isset($_SESSION['Account_exits']) && $_SESSION['Account_exits'] === true) {
+            if ($_SESSION['id_rola'] === 1) {
+                baner_prac();
+                echo 'Udało się zalogować!';
+            } elseif ($_SESSION['id_rola'] === 2) {
+                baner_tech();
+                echo 'Udało się zalogować!';
+            }
         }
     }
 
-    if (isset($_SESSION['Account_exits']) && $_SESSION['Account_exits'] === true) {
-        if ($_SESSION['id_rola'] === 1) {
-            baner_prac();
-            echo 'Udało się zalogować!';
-        } elseif ($_SESSION['id_rola'] === 2) {
-            baner_tech();
-            echo 'Udało się zalogować!';
-        }
-    }
-}
     // Plik dodaZgloszen.php
     function addReport($sql){
         $date = date("Y-m-d");
@@ -67,20 +68,13 @@
     
     // Plik listaZgloszen.php
     function listReport($sql){
-        $zapytanie = "SELECT * FROM `zglosenia`";
-        $wynik = mysqli_query($sql,$zapytanie);
-
-        table_add($wynik);
-    }
-
-    // Plik edycjaStatusu.php
-    function listEdit($sql){
         $zapytanie = "SELECT zglosenia.*, uzytkownicy.nick FROM zglosenia INNER JOIN uzytkownicy ON zglosenia.autor = uzytkownicy.nick;";
         $wynik = mysqli_query($sql,$zapytanie);
-        
+
         tableEdit($wynik);
     }
 
+    // Plik edycjaStatusu.php
     function edit($sql){
         editVisuals($sql);
     }

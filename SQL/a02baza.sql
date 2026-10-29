@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 28, 2026 at 01:57 PM
+-- Generation Time: Paź 29, 2026 at 09:06 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `rola` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `rola`
@@ -49,7 +49,7 @@ INSERT INTO `rola` (`id`, `nazwa`) VALUES
 CREATE TABLE `status` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `status`
@@ -63,6 +63,25 @@ INSERT INTO `status` (`id`, `nazwa`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `uprawnienia`
+--
+
+CREATE TABLE `uprawnienia` (
+  `id` int(11) NOT NULL,
+  `nazwa` varchar(50) NOT NULL
+);
+
+--
+-- Dumping data for table `uprawnienia`
+--
+
+INSERT INTO `uprawnienia` (`id`, `nazwa`) VALUES
+(1, 'baner_pracownik'),
+(2, 'baner_technik');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `uzytkownicy`
 --
 
@@ -71,16 +90,17 @@ CREATE TABLE `uzytkownicy` (
   `nick` text NOT NULL,
   `login` text NOT NULL,
   `haslo` text DEFAULT NULL,
-  `id_rola` int(11) NOT NULL
+  `id_rola` int(11) NOT NULL,
+  `id_uprawnienia` int(11) NOT NULL DEFAULT 1
 );
 
 --
 -- Dumping data for table `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`id`, `nick`, `login`, `haslo`, `id_rola`) VALUES
-(1, 'Adam', 'Pracownik', '123', 1),
-(2, 'Niko985642', 'Technik', '321', 2);
+INSERT INTO `uzytkownicy` (`id`, `nick`, `login`, `haslo`, `id_rola`, `id_uprawnienia`) VALUES
+(1, 'Adam', 'Pracownik', '123', 1, 1),
+(2, 'Niko985642', 'Technik', '321', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -103,7 +123,7 @@ CREATE TABLE `zglosenia` (
 --
 
 INSERT INTO `zglosenia` (`id`, `tytul`, `opis`, `lokalizacja`, `id_status`, `data`, `autor`) VALUES
-(1, '2323;jhgtfrertfg', '23,mngftyujk,mn', 'bvfgjkl,23,mnbvfdghjk', 2, '2026-10-28', 'Adam');
+(1, '2323;jhgtfrtfg', '23,mnyujk,mn', 'bvfgjkl,2vfdghjk', 2, '2026-10-28', 'Adam');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -122,11 +142,18 @@ ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `uprawnienia`
+--
+ALTER TABLE `uprawnienia`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_uzytkownicy_rola` (`id_rola`);
+  ADD KEY `fk_uzytkownicy_rola` (`id_rola`),
+  ADD KEY `fk_uzytkownicy_uprawnienia` (`id_uprawnienia`);
 
 --
 -- Indeksy dla tabeli `zglosenia`
@@ -152,6 +179,12 @@ ALTER TABLE `status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `uprawnienia`
+--
+ALTER TABLE `uprawnienia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
@@ -171,7 +204,8 @@ ALTER TABLE `zglosenia`
 -- Constraints for table `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  ADD CONSTRAINT `fk_uzytkownicy_rola` FOREIGN KEY (`id_rola`) REFERENCES `rola` (`id`);
+  ADD CONSTRAINT `fk_uzytkownicy_rola` FOREIGN KEY (`id_rola`) REFERENCES `rola` (`id`),
+  ADD CONSTRAINT `fk_uzytkownicy_uprawnienia` FOREIGN KEY (`id_uprawnienia`) REFERENCES `uprawnienia` (`id`);
 
 --
 -- Constraints for table `zglosenia`

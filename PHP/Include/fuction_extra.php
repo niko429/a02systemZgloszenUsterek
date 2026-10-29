@@ -1,31 +1,4 @@
-<?php 
-function table_add($wynik){
-?>
-    <table>
-        <tr>
-            <th>Id.</th>
-            <th>Tytuł</th>
-            <th>Opis</th>
-            <th>Lokalizacja</th>
-            <th>Status</th>
-            <th>Data</th>
-            <th>Autor</th>
-        </tr>
-    <?php while ($wynik1 = mysqli_fetch_row($wynik)){ ?>
-        <tr>
-            <td><?= htmlspecialchars($wynik1[0]) ?></td>
-            <td><?= htmlspecialchars($wynik1[1]) ?></td>
-            <td><textarea disabled class='powieksz'><?= htmlspecialchars($wynik1[2]) ?></textarea></td>
-            <td><?= htmlspecialchars($wynik1[3]) ?></td>
-            <td><?= htmlspecialchars($wynik1[4]) ?></td>
-            <td><?= htmlspecialchars($wynik1[5]) ?></td>
-            <td><?= htmlspecialchars($wynik1[6]) ?></td>
-        </tr>
-    <?php } ?>
-    </table>
 <?php
-}
-
 function tableEdit($wynik){
 ?>
     <div style='width: 25%; float: left;'>

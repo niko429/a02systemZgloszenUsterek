@@ -9,7 +9,7 @@
         require_once './config.php';
         require_once './db.php';
         require_once './functions.php';
-        listEdit($sql);
+        listReport($sql);
         edit($sql);
     ?>
     </main>

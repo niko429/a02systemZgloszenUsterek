@@ -27,7 +27,6 @@
                     unset($_SESSION['uprawnienie']);
                     echo "Błędne dane logowania!";
                 }
-                mysqli_stmt_close($stmt);
             }
         }
 

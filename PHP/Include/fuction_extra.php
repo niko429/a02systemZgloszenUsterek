@@ -39,16 +39,15 @@ function tableEdit($wynik){
                 <th>Data</th>
                 <th>Autor</th>
             </tr>
-            <?php while ($wynik1 = mysqli_fetch_row($wynik)){ ?>
+            <?php while ($row = mysqli_fetch_assoc($wynik)) {?>
                 <tr>
-
-                    <td><?= htmlspecialchars($wynik1[0]) ?></td>
-                    <td><?= htmlspecialchars($wynik1[1]) ?></td>
-                    <td><textarea disabled class='powieksz'><?= htmlspecialchars($wynik1[2]) ?></textarea></td>
-                    <td><?= htmlspecialchars($wynik1[3]) ?></td>
-                    <td><?= htmlspecialchars($wynik1[4]) ?></td>
-                    <td><?= htmlspecialchars($wynik1[5]) ?></td>
-                    <td><?= htmlspecialchars($wynik1[6]) ?></td>
+                    <td><?= htmlspecialchars($row['id']) ?></td>
+                    <td><?= htmlspecialchars($row['tytul']) ?></td>
+                    <td><textarea disabled class='powieksz'><?= htmlspecialchars($row['opis']) ?></textarea></td>
+                    <td><?= htmlspecialchars($row['lokalizacja']) ?></td>
+                    <td><?= htmlspecialchars($row['id_status']) ?></td>
+                    <td><?= htmlspecialchars($row['data']) ?></td>
+                    <td><?= htmlspecialchars($row['autor']) ?></td>
                 </tr>
             <?php } ?>
         </table>

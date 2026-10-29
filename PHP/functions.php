@@ -75,7 +75,7 @@
 
     // Plik edycjaStatusu.php
     function listEdit($sql){
-        $zapytanie = "SELECT * FROM `zglosenia`";
+        $zapytanie = "SELECT zglosenia.*, uzytkownicy.nick FROM zglosenia INNER JOIN uzytkownicy ON zglosenia.autor = uzytkownicy.nick;";
         $wynik = mysqli_query($sql,$zapytanie);
         
         tableEdit($wynik);

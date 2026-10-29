@@ -35,3 +35,22 @@ Tabela: Rola
 Tabela: Status
 - Musi być tak że jest dana liczba i ona reprezentuje dany status np. id=1 to nowe, id=2 to w trakcie oraz id=3 to skończone
 - Nie może być status wpisywany w sql lecz to musi być za pomocą tych liczb
+
+
+
+
+Notatka do domu bo znając siebie to zapomnę:
+
+Jeżeli robimy pracę w grupie z innymi programistami to najlepeij robić kod php bez łączenia front-end'u z back-end'em, gdyż to spowoduje to że kod będzie mniej elastyczniejszy niż zawczyaj, ogólnie można je łączyć ze sobą ale nie jest to opłacalne, gdy robisz np. samemu pracę to oczywiście że tak możesz robić ale później może wystąpić nieco problem gdy będziesz chciał powiększyć projekt lub kogoś do niego zaprosić
+
+Zamiast robić 
+    echo "<p>Jestem paragrafem</p>"
+To robi się tal
+    <p><?=Jestem paragrafem?></p>
+
+To jest taki jeden z mniejszych przykładów jak to działa ale mniej więcej daje taką mini wizualizację tego jak to się nieco różni
+
+Co do baz danych, gdy robimy przykładowo status czegokolwiek to lepiej to zrobić w sposobie polu bitowym, że zamiast dosłownie wpisywać nazwę w pole status to lepiej liczbę z której ten status przychodzi. Np. id=1 jest to NOWE, czyli zrobimy tak kod żeby brał ciągle id=1 gdy robimy coś nowego aby mógł to robić bezpieczniej i łatwiej
+
+A dlaczego robimy tak?
+Bo gdyby nam się zachciało zmieniać projekt to będzie o wiele łatwiej zamiast takiego zmieniania każdej tabeli to można zmienić 2 lub 3 tabele aby to przyspieszyć.

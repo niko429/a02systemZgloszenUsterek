@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 29, 2026 at 09:43 AM
+-- Generation Time: Paź 30, 2026 at 10:41 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `rola` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `rola`
@@ -49,7 +49,7 @@ INSERT INTO `rola` (`id`, `nazwa`) VALUES
 CREATE TABLE `status` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `status`
@@ -68,16 +68,20 @@ INSERT INTO `status` (`id`, `nazwa`) VALUES
 
 CREATE TABLE `uprawnienia` (
   `id` int(11) NOT NULL,
-  `nazwa` varchar(50) NOT NULL
-);
+  `nazwa_roli` varchar(50) NOT NULL,
+  `podglad_swoje` tinyint(1) NOT NULL DEFAULT 0,
+  `podglad_wszystkie` tinyint(1) NOT NULL DEFAULT 0,
+  `dodawanie` tinyint(1) NOT NULL DEFAULT 0,
+  `edycja` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `uprawnienia`
 --
 
-INSERT INTO `uprawnienia` (`id`, `nazwa`) VALUES
-(1, 'baner_prac'),
-(2, 'baner_tech');
+INSERT INTO `uprawnienia` (`id`, `nazwa_roli`, `podglad_swoje`, `podglad_wszystkie`, `dodawanie`, `edycja`) VALUES
+(1, 'Pracownik', 1, 0, 1, 0),
+(2, 'Technik', 0, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -87,12 +91,12 @@ INSERT INTO `uprawnienia` (`id`, `nazwa`) VALUES
 
 CREATE TABLE `uzytkownicy` (
   `id` int(11) NOT NULL,
-  `nick` text NOT NULL,
-  `login` text NOT NULL,
-  `haslo` text DEFAULT NULL,
+  `nick` varchar(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `haslo` varchar(255) DEFAULT NULL,
   `id_rola` int(11) NOT NULL,
   `id_uprawnienia` int(11) NOT NULL DEFAULT 1
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `uzytkownicy`
@@ -116,14 +120,14 @@ CREATE TABLE `zglosenia` (
   `id_status` int(11) NOT NULL DEFAULT 1,
   `data` date NOT NULL,
   `autor` varchar(255) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `zglosenia`
 --
 
 INSERT INTO `zglosenia` (`id`, `tytul`, `opis`, `lokalizacja`, `id_status`, `data`, `autor`) VALUES
-(1, '2323;jhgtfrtfg', '23,mnyujk,mn', 'bvfgjkl,2vfdghjk', 2, '2026-10-28', 'Adam');
+(1, 'gfhhfdghrdgh', 'fgnfgvbcvbfhgbvhgbhh', 'tfhgfrthgb2', 2, '2026-10-28', 'Adam');
 
 --
 -- Indeksy dla zrzutów tabel
